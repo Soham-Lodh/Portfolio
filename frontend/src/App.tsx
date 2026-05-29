@@ -10,11 +10,10 @@ import {
   AlertCircle,
   Loader2,
   Check,
-  ChevronDown,
   Award,
 } from "lucide-react";
 
-import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
+import { motion, AnimatePresence} from "motion/react";
 import ParticleCanvas from "./components/ParticleCanvas";
 import { projectAPI, contactAPI, Project } from "./api";
 import "../index.css";
