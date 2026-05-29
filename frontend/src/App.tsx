@@ -13,7 +13,7 @@ import {
   Award,
 } from "lucide-react";
 
-import { motion, AnimatePresence} from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import ParticleCanvas from "./components/ParticleCanvas";
 import { projectAPI, contactAPI, Project } from "./api";
 import "../index.css";
@@ -172,39 +172,39 @@ const Navbar = () => {
     <nav
       className="fixed top-0 left-0 right-0 w-full z-[9999] h-14 md:h-16 transition-all duration-300"
       style={{
-  background: scrolled
-    ? "rgba(10, 14, 39, 0.85)"
-    : "transparent",
-  backdropFilter: scrolled ? "blur(20px)" : "none",
-  WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
-  borderBottom: scrolled
-    ? "1px solid rgba(54,29,50,0.2)"
-    : "1px solid transparent",
-}}
+        background: scrolled ? "rgba(10, 14, 39, 0.85)" : "transparent",
+        backdropFilter: scrolled ? "blur(20px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
+        borderBottom: scrolled
+          ? "1px solid rgba(54,29,50,0.2)"
+          : "1px solid transparent",
+      }}
     >
       {" "}
       <div className="h-full max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
         {" "}
         {/* Logo */}{" "}
-        <div className="flex items-center gap-2">
-          {" "}
-          <div
-            className="w-9 h-9 md:w-[36px] md:h-[36px] rounded-full bg-accent-red flex items-center justify-center"
-            style={{
-              background: "linear-gradient(135deg, #00d9ff 0%, #00f0ff 100%)",
-            }}
-          >
-            {" "}
-            <span className="text-text-dark font-bold text-sm md:text-base">
-              {" "}
-              SL{" "}
-            </span>{" "}
-          </div>{" "}
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+          className="flex items-center gap-3 cursor-pointer"
+        >
+          <img
+            src="/favicon1.png"
+            alt="Soham Lodh"
+            className="w-9 h-9 md:w-10 md:h-10"
+          />
+
           <span className="hidden sm:inline text-text-lightest font-medium text-sm md:text-lg">
-            {" "}
-            Soham Lodh{" "}
-          </span>{" "}
-        </div>{" "}
+            Soham Lodh
+          </span>
+        </a>
         {/* Desktop Nav */}{" "}
         <div className="hidden md:flex items-center gap-8">
           {" "}
@@ -699,62 +699,64 @@ const Projects = () => {
 
       {/* Domain Filter */}
       <div className="flex flex-wrap justify-center gap-3 mb-12">
-  {["All", "Web Development", "AI/ML"].map((domain) => {
-    const isActive =
-      (domain === "All" && !selectedDomain) ||
-      (domain !== "All" && selectedDomain === domain);
+        {["All", "Web Development", "AI/ML"].map((domain) => {
+          const isActive =
+            (domain === "All" && !selectedDomain) ||
+            (domain !== "All" && selectedDomain === domain);
 
-    return (
-      <motion.button
-        key={domain}
-        onClick={() => setSelectedDomain(domain === "All" ? null : domain)}
-        animate={{
-          scale: isActive ? 1.08 : 1,
-        }}
-        whileHover={{ scale: isActive ? 1.08 : 1.04 }}
-        whileTap={{ scale: 0.96 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className={`relative px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-200 overflow-hidden ${
-          isActive
-            ? "text-white"
-            : "liquid-glass text-text-light hover:text-text-lightest"
-        }`}
-        style={
-          isActive
-            ? {
-                background: "var(--accent-red) text-text-dark",
-                boxShadow:
-                  "0 0 0 1px rgba(245,89,81,0.6), 0 0 20px rgba(245,89,81,0.45), 0 0 40px rgba(245,89,81,0.2)",
+          return (
+            <motion.button
+              key={domain}
+              onClick={() =>
+                setSelectedDomain(domain === "All" ? null : domain)
               }
-            : {}
-        }
-      >
-        {isActive && (
-          <motion.span
-            layoutId="activeFilter"
-            className="absolute inset-0 rounded-full"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%)",
-            }}
-          />
-        )}
-        <span className="relative z-10 flex items-center gap-2">
-          {isActive && (
-            <motion.span
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              className="w-1.5 h-1.5 rounded-full bg-white inline-block"
-              style={{ boxShadow: "0 0 6px rgba(255,255,255,0.8)" }}
-            />
-          )}
-          {domain}
-        </span>
-      </motion.button>
-    );
-  })}
-</div>
+              animate={{
+                scale: isActive ? 1.08 : 1,
+              }}
+              whileHover={{ scale: isActive ? 1.08 : 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className={`relative px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-200 overflow-hidden ${
+                isActive
+                  ? "text-white"
+                  : "liquid-glass text-text-light hover:text-text-lightest"
+              }`}
+              style={
+                isActive
+                  ? {
+                      background: "var(--accent-red) text-text-dark",
+                      boxShadow:
+                        "0 0 0 1px rgba(245,89,81,0.6), 0 0 20px rgba(245,89,81,0.45), 0 0 40px rgba(245,89,81,0.2)",
+                    }
+                  : {}
+              }
+            >
+              {isActive && (
+                <motion.span
+                  layoutId="activeFilter"
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%)",
+                  }}
+                />
+              )}
+              <span className="relative z-10 flex items-center gap-2">
+                {isActive && (
+                  <motion.span
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0, opacity: 0 }}
+                    className="w-1.5 h-1.5 rounded-full bg-white inline-block"
+                    style={{ boxShadow: "0 0 6px rgba(255,255,255,0.8)" }}
+                  />
+                )}
+                {domain}
+              </span>
+            </motion.button>
+          );
+        })}
+      </div>
 
       {/* Projects Grid */}
       {loading ? (
@@ -937,7 +939,7 @@ const TimelineDot = ({
 
         const targetY = Math.max(
           0,
-          Math.min(window.innerHeight * 0.5 - rect.top, rect.height)
+          Math.min(window.innerHeight * 0.5 - rect.top, rect.height),
         );
 
         currentY.current += (targetY - currentY.current) * 0.15;
@@ -1018,7 +1020,10 @@ const Experience = () => {
                   </p>
                   <ul className="space-y-2 mb-4">
                     {exp.bullets.map((bullet, i) => (
-                      <li key={i} className="text-text-light text-sm leading-relaxed">
+                      <li
+                        key={i}
+                        className="text-text-light text-sm leading-relaxed"
+                      >
                         <span className="text-accent-red mr-2">—</span>
                         {bullet}
                       </li>
