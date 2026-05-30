@@ -17,7 +17,6 @@ import { motion, AnimatePresence } from "motion/react";
 import ParticleCanvas from "./components/ParticleCanvas";
 import { projectAPI, contactAPI, Project } from "./api";
 import "../index.css";
-
 interface NavLink {
   label: string;
   href: string;
@@ -100,19 +99,19 @@ const EDUCATION = [
     institution: "KIIT University",
     degree: "B.Tech, Computer Science Engineering (AI & ML)",
     year: "2024 – 2028",
-    cgpa: 9.29,
+    cgpa: 9.31,
   },
   {
     institution: "Aditya Academy Senior Secondary",
     degree: "Class XII (CBSE)",
     year: "2024",
-    cgpa: 85,
+    percentage: 85,
   },
   {
     institution: "Aditya Academy",
     degree: "Class X (CBSE)",
     year: "2022",
-    cgpa: 85.66,
+    percentage: 85.66,
   },
 ];
 
@@ -121,25 +120,25 @@ const CERTIFICATIONS = [
     name: "TensorFlow on Google Cloud",
     issuer: "Google",
     year: "2025",
-    url: "https://google.com",
+    url: "/classify-images-with-tensorflow-on-google-cloud.png",
   },
   {
     name: "DSA in Python",
     issuer: "NPTEL",
     year: "2025",
-    url: "https://nptel.ac.in",
+    url: "/Programming, Data Structures And Algorithms Using Python.pdf",
   },
   {
     name: "Postman API Student Expert",
     issuer: "Postman",
     year: "2025",
-    url: "https://postman.com",
+    url: "./Postman - Postman API Fundamentals Student Expert.jpg",
   },
   {
     name: "GirlScript Summer of Code",
     issuer: "Open Source Contributor",
     year: "2025",
-    url: "https://gssoc.girlscript.tech",
+    url: "/GSSoC'25.jpg",
   },
 ];
 
@@ -328,7 +327,7 @@ const Hero = () => {
           className="liquid-glass inline-block rounded-full px-4 py-1.5 mb-6"
         >
           <p className="text-xs text-text-light">
-            🎓 B.Tech CSE (AI & ML) · KIIT · CGPA 9.29
+            🎓 B.Tech CSE (AI & ML) · KIIT · CGPA 9.31
           </p>
         </motion.div>
         <div className="mb-6 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
@@ -380,7 +379,7 @@ const Hero = () => {
             View Projects
           </a>
           <a
-            href="../public/resume.pdf"
+            href="/resume.pdf"
             download
             className="liquid-glass px-6 py-3 rounded-lg text-text-light flex items-center gap-2 transition-all duration-300 hover:shadow-[0_0_20px_rgba(54,29,50,0.5)]"
           >
@@ -507,7 +506,7 @@ const About = () => {
               className="liquid-glass p-6 rounded-lg"
             >
               <p className="text-text-lightest text-3xl font-bold text-accent-red">
-                9.29
+                9.31
               </p>
               <p className="text-text-light text-xs mt-2">CGPA</p>
             </motion.div>
@@ -553,7 +552,7 @@ const About = () => {
               <span className="text-accent-red">"KIIT University"</span>,
             </div>
             <div className="text-text-light ml-4">
-              cgpa: <span className="text-text-light">9.29</span>,
+              cgpa: <span className="text-accent-red">9.31</span>,
             </div>
             <div className="text-text-light ml-4">
               seeking:{" "}
@@ -568,7 +567,7 @@ const About = () => {
               <span className="text-accent-red">"Full-Stack"</span>],
             </div>
             <div className="text-text-light ml-4">
-              status: <span className="text-accent-red">"Open to work ✓"</span>
+              status: <span className="text-accent-red">"Open to works"</span>
             </div>
             <div className="text-text-light">{"}"}</div>
             <div className="text-text-light mt-4 blink-cursor">_</div>
@@ -1033,7 +1032,7 @@ const Experience = () => {
                     {exp.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="bg-accent-red bg-opacity-8 border border-accent-red border-opacity-20 text-text-light text-xs px-3 py-1 rounded-full"
+                        className="bg-accent-red bg-opacity-8 border border-accent-red border-opacity-20 text-text-dark text-xs px-3 py-1 rounded-full"
                       >
                         {tech}
                       </span>
@@ -1104,9 +1103,11 @@ const Education = () => {
                   </p>
                   <div>
                     <p className="text-text-lightest text-3xl font-bold text-accent-red">
-                      {edu.cgpa}
+                      {edu.cgpa ? edu.cgpa : edu.percentage}
                     </p>
-                    <p className="text-text-light text-xs">CGPA</p>
+                    <p className="text-text-light text-xs">
+                      {edu.cgpa ? "CGPA" : "Percentage"}
+                    </p>
                   </div>
                 </motion.div>
               </motion.div>
@@ -1168,6 +1169,15 @@ const Certifications = () => {
               {cert.name}
             </h3>
             <p className="text-text-light text-sm mb-3">{cert.issuer}</p>
+            <a
+              href={cert.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-lg liquid-glass text-sm font-medium text-text-light hover:text-accent-red transition-all duration-300 hover:scale-[1.02]"
+            >
+              Verify Certificate
+              <ExternalLink size={16} />
+            </a>
           </motion.div>
         ))}
       </div>
