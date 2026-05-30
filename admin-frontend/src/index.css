@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-deep: #0a0e27;
+  --bg-mid: #1a1f3a;
+  --accent-red: #00d9ff;
+  --text-light: #b0bec5;
+  --text-lightest: #eceff1;
+  --text-dark: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-light);
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-red);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 89, 81, 0.8);
+}
+
+/* Liquid Glass Utility */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    160deg,
+    rgba(0, 217, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.08) 30%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(0, 217, 255, 0.2) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-lightest);
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+}
