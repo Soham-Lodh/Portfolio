@@ -117,7 +117,7 @@ const EDUCATION = [
 
 const CERTIFICATIONS = [
   {
-    name: "TensorFlow on Google Cloud",
+    name: "TClassify Images with TensorFlow on Google Cloud",
     issuer: "Google",
     year: "2025",
     url: "/classify-images-with-tensorflow-on-google-cloud.png",
