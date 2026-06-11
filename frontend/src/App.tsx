@@ -44,6 +44,7 @@ const SKILLS = {
     "Seaborn",
     "Feature Engineering",
     "Hyperparameter Tuning",
+    "Optuna",
   ],
   Backend: [
     "Node.js",
@@ -117,7 +118,7 @@ const EDUCATION = [
 
 const CERTIFICATIONS = [
   {
-    name: "TClassify Images with TensorFlow on Google Cloud",
+    name: "Classify Images with TensorFlow on Google Cloud",
     issuer: "Google",
     year: "2025",
     url: "/classify-images-with-tensorflow-on-google-cloud.png",
@@ -140,6 +141,12 @@ const CERTIFICATIONS = [
     year: "2025",
     url: "/GSSoC'25.jpg",
   },
+  {
+    name: "Master Machine Learning for Data Science & Al",
+    issuer: "odebasics ",
+    year: "2026",
+    url: "/Codebasics ML Course.jpg"
+  }
 ];
 
 // Navbar Component
