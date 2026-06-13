@@ -12,7 +12,7 @@ import {
   Check,
   Award,
 } from "lucide-react";
-
+import { SiLeetcode } from "react-icons/si";
 import { motion, AnimatePresence } from "motion/react";
 import ParticleCanvas from "./components/ParticleCanvas";
 import { projectAPI, contactAPI, Project } from "./api";
@@ -145,8 +145,8 @@ const CERTIFICATIONS = [
     name: "Master Machine Learning for Data Science & Al",
     issuer: "odebasics ",
     year: "2026",
-    url: "/Codebasics ML Course.jpg"
-  }
+    url: "/Codebasics ML Course.jpg",
+  },
 ];
 
 // Navbar Component
@@ -219,7 +219,7 @@ const Navbar = () => {
               key={link.label}
               href={link.href}
               onClick={handleNavClick}
-              className={`text-sm transition-colors duration-200 relative ${activeSection === link.href.replace("#", "") ? "text-accent-red" : "text-text-light hover:text-accent-red"}`}
+              className={`text-lg transition-colors duration-200 relative ${activeSection === link.href.replace("#", "") ? "text-accent-red" : "text-text-light hover:text-accent-red"}`}
             >
               {" "}
               {link.label}{" "}
@@ -419,6 +419,14 @@ const Hero = () => {
             className="liquid-glass w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 hover:text-accent-red transition-all"
           >
             <Linkedin size={20} className="text-text-light" />
+          </a>
+          <a
+            href="https://leetcode.com/u/sohamlodh/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="liquid-glass w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 hover:text-accent-red transition-all"
+          >
+            <SiLeetcode size={20} className="text-text-light" />
           </a>
         </motion.div>
       </motion.div>
@@ -1287,6 +1295,12 @@ const Contact = () => {
                 value: "linkedin.com/in/soham-lodh",
                 href: "https://linkedin.com/in/soham-lodh",
               },
+              {
+                icon: SiLeetcode,
+                label: "LeetCode",
+                value: "leetcode.com/u/sohamlodh",
+                href: "https://leetcode.com/u/sohamlodh/",
+              },
             ].map(({ icon: Icon, label, value, href }, i) => (
               <motion.a
                 key={label}
@@ -1372,8 +1386,8 @@ const Contact = () => {
               whileTap={{ scale: 0.99 }}
               className={`w-full py-3 rounded-lg font-semibold text-lg transition-all flex items-center justify-center gap-2 ${
                 status === "success"
-                  ? "bg-green-600 text-white"
-                  : "bg-accent-red text-text-lightest hover:brightness-110"
+                  ? "bg-green-600 text-text-dark"
+                  : "bg-accent-red text-text-dark hover:brightness-110"
               }`}
             >
               {loading ? (
@@ -1418,17 +1432,20 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div
-                className="w-8 h-8 rounded-full bg-accent-red flex items-center justify-center"
-                style={{ backgroundColor: "#00d9ff" }}
+                className="w-8 h-8 rounded-full flex items-center justify-center bg-bg-deep"
               >
-                <span className="text-text-lightest font-bold text-xs">SL</span>
+                <img
+                  src="/favicon1.png"
+                  alt="Soham Lodh"
+                  className="w-9 h-9 md:w-10 md:h-10"
+                />
               </div>
               <span className="text-text-lightest font-medium">Soham Lodh</span>
             </div>
-            <p className="text-text-light text-sm">
+            <p className="text-text-light text-lg">
               ML Engineer & Full-Stack Developer
             </p>
-            <p className="text-text-light text-xs opacity-60">
+            <p className="text-text-light text-sm opacity-60">
               Building production-grade systems, one commit at a time.
             </p>
           </div>
@@ -1439,7 +1456,7 @@ const Footer = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-text-light text-sm hover:text-accent-red transition-colors"
+                className="text-text-light text-lg hover:text-accent-red transition-colors"
               >
                 {link.label}
               </a>
@@ -1448,6 +1465,12 @@ const Footer = () => {
 
           {/* Right */}
           <div className="flex gap-4 justify-end">
+            <a
+              href="mailto:sohamlodh06@gmail.com"
+              className="liquid-glass w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 hover:text-accent-red transition-all"
+            >
+              <Mail size={18} className="text-text-light" />
+            </a>
             <a
               href="https://github.com/Soham-Lodh"
               target="_blank"
@@ -1465,10 +1488,12 @@ const Footer = () => {
               <Linkedin size={18} className="text-text-light" />
             </a>
             <a
-              href="mailto:sohamlodh06@gmail.com"
+              href="https://leetcode.com/u/your-username/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="liquid-glass w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 hover:text-accent-red transition-all"
             >
-              <Mail size={18} className="text-text-light" />
+              <SiLeetcode size={20} className="text-text-light" />
             </a>
           </div>
         </div>
@@ -1478,12 +1503,12 @@ const Footer = () => {
           className="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
           style={{ borderColor: "rgba(245,89,81,0.1)" }}
         >
-          <p className="text-text-light text-xs opacity-50">
+          <p className="text-text-light text-sm opacity-50">
             © 2025 Soham Lodh. Built with React & TypeScript.
           </p>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-accent-red pulse-dot" />
-            <p className="text-accent-red text-xs font-semibold">
+            <p className="text-accent-red text-sm font-semibold">
               Open to Internships
             </p>
           </div>
