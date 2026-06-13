@@ -1488,7 +1488,7 @@ const Footer = () => {
               <Linkedin size={18} className="text-text-light" />
             </a>
             <a
-              href="https://leetcode.com/u/your-username/"
+              href="https://leetcode.com/u/sohamlodh/"
               target="_blank"
               rel="noopener noreferrer"
               className="liquid-glass w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 hover:text-accent-red transition-all"
