@@ -28,25 +28,14 @@ import {
   SiAxios,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
-// XGBoost, Random Forest, Feature Engineering, Hyperparameter Tuning, Optuna, Matplotlib,
-// Seaborn, JWT, REST APIs, Clerk Auth — no official SI icons; use TbIcons or custom
 import {
-  TbBrandXdeep,    // XGBoost fallback — we'll use a custom SVG
-  TbChartBar,
-  TbBraces,
+  TbBrandXdeep,
   TbKey,
   TbApi,
   TbAdjustments,
-  TbBrain,
-  TbChartDots,
-  TbChartLine,
-  TbSeeding,
   TbSettings,
-  TbShield,
   TbUserShield,
 } from "react-icons/tb";
-
-// ─── Skill definition ────────────────────────────────────────────────────────
 interface Skill {
   name: string;
   icon: React.ElementType | null;
@@ -54,8 +43,6 @@ interface Skill {
   color: string;    // icon / text color
   customSvg?: string; // for brands with no react-icons entry
 }
-
-// ─── Skill maps per category ─────────────────────────────────────────────────
 
 const LANGUAGES: Skill[] = [
   { name: "Python",     icon: SiPython,     bg: "#3776AB", color: "#FFD43B" },
@@ -140,7 +127,6 @@ const ALL_CATEGORIES = [
   { label: "Tools & Platforms", skills: TOOLS },
 ];
 
-// ─── Single skill chip ────────────────────────────────────────────────────────
 const SkillChip = ({ skill }: { skill: Skill }) => {
   const Icon = skill.icon;
 
@@ -151,7 +137,6 @@ const SkillChip = ({ skill }: { skill: Skill }) => {
       transition={{ type: "spring", stiffness: 350, damping: 18 }}
       className="group flex flex-col items-center gap-2 cursor-default"
     >
-      {/* Icon bubble */}
       <div
         className="w-12 h-12 rounded-xl flex items-center justify-center shadow-md transition-shadow duration-200 group-hover:shadow-xl"
         style={{
@@ -169,7 +154,6 @@ const SkillChip = ({ skill }: { skill: Skill }) => {
           />
         )}
       </div>
-      {/* Label */}
       <span className="text-xs text-text-light text-center leading-tight max-w-[72px] group-hover:text-text-lightest transition-colors">
         {skill.name}
       </span>
@@ -177,7 +161,6 @@ const SkillChip = ({ skill }: { skill: Skill }) => {
   );
 };
 
-// ─── Category row ─────────────────────────────────────────────────────────────
 const CategoryRow = ({
   label,
   skills,
@@ -195,12 +178,10 @@ const CategoryRow = ({
     className="liquid-glass rounded-2xl p-6 md:p-8"
     style={{ background: "rgba(26, 31, 58, 0.45)" }}
   >
-    {/* Category label */}
     <p className="text-accent-red text-xs uppercase tracking-widest font-bold mb-6">
       {label}
     </p>
 
-    {/* Chips grid */}
     <div className="flex flex-wrap gap-x-6 gap-y-5">
       {skills.map((skill) => (
         <SkillChip key={skill.name} skill={skill} />
@@ -209,7 +190,6 @@ const CategoryRow = ({
   </motion.div>
 );
 
-// ─── Section export ───────────────────────────────────────────────────────────
 const Skills = () => (
   <section
     id="skills"
@@ -225,7 +205,6 @@ const Skills = () => (
       viewport={{ once: true, amount: 0.2 }}
       className="text-xs text-accent-red uppercase tracking-widest font-semibold mb-4"
     >
-      // TECHNICAL ARSENAL
     </motion.div>
 
     <motion.h2

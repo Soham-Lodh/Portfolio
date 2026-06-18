@@ -33,41 +33,6 @@ const NAV_LINKS: NavLink[] = [
   { label: "Contact", href: "#contact" },
 ];
 
-// const SKILLS = {
-//   Languages: ["Python", "JavaScript", "TypeScript", "Java", "C"],
-//   "ML / Data": [
-//     "XGBoost",
-//     "Random Forest",
-//     "Scikit-learn",
-//     "pandas",
-//     "NumPy",
-//     "Matplotlib",
-//     "Seaborn",
-//     "Feature Engineering",
-//     "Hyperparameter Tuning",
-//     "Optuna",
-//   ],
-//   Backend: [
-//     "Node.js",
-//     "Express.js",
-//     "FastAPI",
-//     "REST APIs",
-//     "JWT Authentication",
-//     "Prisma ORM",
-//     "Clerk Auth"
-//   ],
-//   Frontend: ["React.js", "Next.js", "Tailwind CSS", "Axios","Redux Toolkit","Vite"],
-//   Databases: ["MongoDB", "PostgreSQL"],
-//   "Tools & Platforms": [
-//     "Git",
-//     "GitHub",
-//     "Vercel",
-//     "Render",
-//     "Cloudinary",
-//     "Streamlit",
-//     "Postman",
-//   ],
-// };
 
 const EXPERIENCE = [
   {
@@ -607,55 +572,6 @@ const Skills = () => {
       }}
     >
       <SkillSection/>
-      {/* <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        className="text-xs text-accent-red uppercase tracking-widest font-semibold mb-4"
-      >
-        // TECHNICAL ARSENAL
-      </motion.div>
-
-      <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
-        className="text-4xl md:text-5xl font-bold text-text-lightest mb-12"
-      >
-        Technical Arsenal
-      </motion.h2>
-
-      <div className="space-y-4">
-        {Object.entries(SKILLS).map(([category, skills], index) => (
-          <motion.div
-            key={category}
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ delay: index * 0.1 }}
-            className="liquid-glass p-6 md:p-7 rounded-lg flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8"
-            style={{ background: "rgba(26, 31, 58, 0.4)" }}
-          >
-            <div className="min-w-fit">
-              <p className="text-accent-red text-xs md:text-sm uppercase tracking-widest font-bold">
-                {category}
-              </p>
-            </div>
-            <div className="hidden md:block w-px h-12 bg-accent-red opacity-30" />
-            <div className="flex flex-wrap gap-3">
-              {skills.map((skill) => (
-                <motion.div
-                  key={skill}
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-accent-red text-text-dark bg-opacity-8 border border-accent-red border-opacity-20 hover:bg-opacity-15 hover:border-opacity-50 hover:text-text-lightest px-3 py-1.5 rounded-full text-xs md:text-sm transition-all duration-150"
-                >
-                  {skill}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </div> */}
     </section>
   );
 };
