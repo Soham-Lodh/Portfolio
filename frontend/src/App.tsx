@@ -15,6 +15,7 @@ import {
 import { SiLeetcode } from "react-icons/si";
 import { motion, AnimatePresence } from "motion/react";
 import ParticleCanvas from "./components/ParticleCanvas";
+import SkillSection from "./components/Skills";
 import { projectAPI, contactAPI, Project } from "./api";
 import "../index.css";
 interface NavLink {
@@ -32,40 +33,41 @@ const NAV_LINKS: NavLink[] = [
   { label: "Contact", href: "#contact" },
 ];
 
-const SKILLS = {
-  Languages: ["Python", "JavaScript", "TypeScript", "Java", "C"],
-  "ML / Data": [
-    "XGBoost",
-    "Random Forest",
-    "Scikit-learn",
-    "pandas",
-    "NumPy",
-    "Matplotlib",
-    "Seaborn",
-    "Feature Engineering",
-    "Hyperparameter Tuning",
-    "Optuna",
-  ],
-  Backend: [
-    "Node.js",
-    "Express.js",
-    "FastAPI",
-    "REST APIs",
-    "JWT Authentication",
-    "Prisma ORM",
-  ],
-  Frontend: ["React.js", "Next.js", "Tailwind CSS", "Axios"],
-  Databases: ["MongoDB", "PostgreSQL"],
-  "Tools & Platforms": [
-    "Git",
-    "GitHub",
-    "Vercel",
-    "Render",
-    "Cloudinary",
-    "Streamlit",
-    "Postman",
-  ],
-};
+// const SKILLS = {
+//   Languages: ["Python", "JavaScript", "TypeScript", "Java", "C"],
+//   "ML / Data": [
+//     "XGBoost",
+//     "Random Forest",
+//     "Scikit-learn",
+//     "pandas",
+//     "NumPy",
+//     "Matplotlib",
+//     "Seaborn",
+//     "Feature Engineering",
+//     "Hyperparameter Tuning",
+//     "Optuna",
+//   ],
+//   Backend: [
+//     "Node.js",
+//     "Express.js",
+//     "FastAPI",
+//     "REST APIs",
+//     "JWT Authentication",
+//     "Prisma ORM",
+//     "Clerk Auth"
+//   ],
+//   Frontend: ["React.js", "Next.js", "Tailwind CSS", "Axios","Redux Toolkit","Vite"],
+//   Databases: ["MongoDB", "PostgreSQL"],
+//   "Tools & Platforms": [
+//     "Git",
+//     "GitHub",
+//     "Vercel",
+//     "Render",
+//     "Cloudinary",
+//     "Streamlit",
+//     "Postman",
+//   ],
+// };
 
 const EXPERIENCE = [
   {
@@ -604,7 +606,8 @@ const Skills = () => {
           "radial-gradient(circle at center, rgba(26,31,58,0.3) 0%, transparent 70%)",
       }}
     >
-      <motion.div
+      <SkillSection/>
+      {/* <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.2 }}
@@ -652,7 +655,7 @@ const Skills = () => {
             </div>
           </motion.div>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 };
@@ -1517,9 +1520,9 @@ const Footer = () => {
     </footer>
   );
 };
-
 // Main App Component
 export default function App() {
+  
   return (
     <div className="relative isolate w-full bg-transparent">
       <ParticleCanvas />
