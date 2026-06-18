@@ -565,7 +565,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto bg-transparent"
+      className="py-10 px-4 md:px-8 max-w-7xl mx-auto bg-transparent"
       style={{
         backgroundImage:
           "radial-gradient(circle at center, rgba(26,31,58,0.3) 0%, transparent 70%)",
