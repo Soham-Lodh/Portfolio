@@ -501,7 +501,7 @@ const About = () => {
             >
               <p className="text-text-lightest text-3xl font-bold text-accent-red">
                 {liveProjectsCount !== null
-                  ? `${liveProjectsCount}+`
+                  ? `${liveProjectsCount}`
                   : "Loading..."}
               </p>
               <p className="text-text-light text-xs mt-2">Live Projects</p>
