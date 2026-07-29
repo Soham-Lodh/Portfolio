@@ -18,6 +18,9 @@ import ParticleCanvas from "./components/ParticleCanvas";
 import SkillSection from "./components/Skills";
 import { projectAPI, contactAPI, Project } from "./api";
 import "../index.css";
+import LoadingScreen from "./components/LoadingScreen";
+
+// ============= EXISTING COMPONENTS BELOW (unchanged) =============
 interface NavLink {
   label: string;
   href: string;
@@ -32,7 +35,6 @@ const NAV_LINKS: NavLink[] = [
   { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
-
 
 const EXPERIENCE = [
   {
@@ -143,7 +145,7 @@ const Navbar = () => {
   };
   return (
     <nav
-      className="fixed top-0 left-0 right-0 w-full z-[9999] h-14 md:h-16 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 w-full z-[4999] h-14 md:h-16 transition-all duration-300"
       style={{
         background: scrolled ? "rgba(10, 14, 39, 0.85)" : "transparent",
         backdropFilter: scrolled ? "blur(20px)" : "none",
@@ -1436,12 +1438,19 @@ const Footer = () => {
     </footer>
   );
 };
-// Main App Component
+
+// ============= MAIN APP COMPONENT =============
 export default function App() {
-  
+  const [showLoading, setShowLoading] = useState(true);
+
   return (
     <div className="relative isolate w-full bg-transparent">
       <ParticleCanvas />
+      <AnimatePresence>
+        {showLoading && (
+          <LoadingScreen onLoadingComplete={() => setShowLoading(false)} />
+        )}
+      </AnimatePresence>
       <Navbar />
       <Hero />
       <About />
