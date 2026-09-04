@@ -413,7 +413,7 @@ const About = () => {
     const fetchStats = async () => {
       try {
         const apiBaseUrl =
-          import.meta.env.VITE_API_BASE_URL || "http://localhost:4000/api";
+          import.meta.env.VITE_API_BASE_URL || "https://portfolio.soham-lodh.deno.net/api";
         const response = await fetch(`${apiBaseUrl}/user/stats`);
         if (response.ok) {
           const data = await response.json();
