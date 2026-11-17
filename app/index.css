@@ -26,6 +26,8 @@ body {
   color: var(--text-light);
   font-family: 'Space Grotesk', sans-serif;
   overflow-x: hidden;
+  /* `clip` keeps position: sticky working (hidden creates a scroll container). */
+  overflow-x: clip;
 }
 
 /* Custom Scrollbar */
@@ -133,4 +135,89 @@ h1, h2, h3, h4, h5, h6 {
   border-right: 2px solid var(--accent-red);
   animation: blink-cursor 1s infinite;
   padding-right: 0.2em;
+}
+
+/* ============= PROJECT SKELETONS ============= */
+/* Bars mirror the measured loaded card: 26.5px badge, 24px title, 3x13px
+   description lines, 20.5px tags and a 19.5px footer inside 24px padding. */
+.skeleton-bar {
+  border-radius: 5px;
+  background: linear-gradient(
+    90deg,
+    rgba(176, 190, 197, 0.06) 0%,
+    rgba(176, 190, 197, 0.16) 50%,
+    rgba(176, 190, 197, 0.06) 100%
+  );
+  background-size: 320px 100%;
+  background-repeat: no-repeat;
+  animation: skeleton-sweep 1.6s ease-in-out infinite;
+}
+
+@keyframes skeleton-sweep {
+  0% {
+    background-position: -320px 0;
+  }
+  100% {
+    background-position: calc(100% + 320px) 0;
+  }
+}
+
+/* ============= TECHNICAL ARSENAL STACK ============= */
+.skills-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 6vh;
+  perspective: 1800px;
+  perspective-origin: 50% 0%;
+}
+
+.skills-card {
+  position: sticky;
+  top: calc(72px + var(--i) * 8px);
+  transform-origin: top center;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.skills-card__text {
+  opacity: calc(1 - var(--cover, 0) * 0.14);
+}
+
+.skills-card__trame {
+  background: #030614;
+  border-radius: inherit;
+  opacity: calc(var(--cover, 0) * 0.05);
+}
+
+@media (min-width: 768px) {
+  .skills-stack {
+    gap: 30px;
+    padding-bottom: 10vh;
+  }
+
+  .skills-card {
+    top: calc(88px + var(--i) * 14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-bar {
+    animation: none;
+    background: rgba(176, 190, 197, 0.1);
+  }
+
+  .skills-card {
+    position: relative;
+    top: auto;
+    transform: none !important;
+  }
+
+  .skills-card__text {
+    opacity: 1;
+  }
+
+  .skills-card__trame {
+    opacity: 0;
+  }
 }

@@ -16,6 +16,7 @@ import { SiLeetcode } from "react-icons/si";
 import { motion, AnimatePresence } from "motion/react";
 import ParticleCanvas from "./components/ParticleCanvas";
 import SkillSection from "./components/Skills";
+import ProjectCardSkeleton from "./components/ProjectCardSkeleton";
 import { projectAPI, contactAPI, Project } from "./api";
 import "../index.css";
 import LoadingScreen from "./components/LoadingScreen";
@@ -563,20 +564,7 @@ const About = () => {
 };
 
 // Skills Section
-const Skills = () => {
-  return (
-    <section
-      id="skills"
-      className="py-10 px-4 md:px-8 max-w-7xl mx-auto bg-transparent"
-      style={{
-        backgroundImage:
-          "radial-gradient(circle at center, rgba(26,31,58,0.3) 0%, transparent 70%)",
-      }}
-    >
-      <SkillSection/>
-    </section>
-  );
-};
+const Skills = () => <SkillSection />;
 
 // Projects Section
 const Projects = () => {
@@ -695,9 +683,15 @@ const Projects = () => {
 
       {/* Projects Grid */}
       {loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="liquid-glass rounded-2xl h-96 shimmer" />
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          aria-busy="true"
+        >
+          <p className="sr-only" role="status">
+            Loading projects…
+          </p>
+          {Array.from({ length: 6 }).map((_, i) => (
+            <ProjectCardSkeleton key={i} />
           ))}
         </div>
       ) : error ? (
@@ -723,6 +717,7 @@ const Projects = () => {
           {projects.map((project) => (
             <motion.div
               key={project._id}
+              data-project-card=""
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -6 }}
